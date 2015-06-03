@@ -1,0 +1,24 @@
+{
+  "name": "cxoman",
+  "version": "1.0.0",
+  "description": "cxoman website",
+  "main": "index.js",
+  "dependencies": {
+    "total.js": "^1.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liguokai/cxoman.git"
+  },
+  "keywords": [
+    "cxoman",
+    "recruitment",
+    "hire"
+  ],
+  "author": "Jason Li",
+  "license": "ISC"
+}
