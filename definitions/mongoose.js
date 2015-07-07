@@ -4,4 +4,4 @@
 
 //initial mongoose connection
 var mongoose = require('mongoose');
-mongoose.connect(CONFIG('database'));
+mongoose.createConnection(CONFIG('database'), { server: { poolSize: 5 }});
