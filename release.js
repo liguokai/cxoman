@@ -4,7 +4,7 @@
 // http://www.totaljs.com
 // ===================================================
 
-var fs = require('fs');
+//var fs = require('fs');
 var options = {};
 
 // options.ip = '127.0.0.1';

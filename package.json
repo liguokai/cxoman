@@ -4,7 +4,9 @@
   "description": "cxoman website",
   "main": "index.js",
   "dependencies": {
-    "total.js": "^1.5.1"
+    "total.js": "^1.8",
+    "mongodb": "2.0.35",
+    "mongoose": "4.0.6"
   },
   "devDependencies": {},
   "scripts": {
