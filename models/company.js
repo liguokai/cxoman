@@ -18,5 +18,5 @@ var companySchema = mongoose.Schema(
     }
 );
 
-exports.schema = mongoose.model('company', companySchema);
-exports.name = 'company';
+exports.schema = mongoose.model('Company', companySchema);
+exports.name = 'Company';

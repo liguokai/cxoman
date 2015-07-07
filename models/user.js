@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-
-var userSchema = mongoose.Schema(
+var Schema = mongoose.Schema;
+var userSchema = new Schema(
     {
         name: String,
         gender: String,
@@ -16,9 +16,11 @@ var userSchema = mongoose.Schema(
         currentLocation: String,
         desiredLocation: String,
         summary: String,
-        privacy: [Schema.Types.ObjectId] //companies
+        currentSalary: String,
+        desiredSalary: String,
+        privacy: [{ type: Schema.Types.ObjectId, ref: 'Company'}] //companies
     }
 );
 
-exports.schema = mongoose.model('user', userSchema);
-exports.name = 'user';
+exports.schema = mongoose.model('User', userSchema);
+exports.name = 'User';

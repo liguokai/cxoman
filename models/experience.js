@@ -2,7 +2,8 @@
  * Created by liguokai on 15-7-8.
  */
 var mongoose = require('mongoose');
-var experienceSchema = mongoose.Schema(
+var Schema = mongoose.Schema;
+var experienceSchema = new Schema(
     {
         company: String,
         position: String,
@@ -11,9 +12,9 @@ var experienceSchema = mongoose.Schema(
         projectName: String,
         projectScale: Number, //how many people in the projects
         description: String,
-        user_id: Schema.Types.ObjectId //belongs to user model
+        user: { type: Schema.Types.ObjectId, ref: 'User'} //belongs to user model
     }
 );
 
-exports.schema = mongoose.model('experience', experienceSchema);
-exports.name = 'experience';
+exports.schema = mongoose.model('Experience', experienceSchema);
+exports.name = 'Experience';

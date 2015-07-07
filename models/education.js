@@ -4,17 +4,17 @@
  */
 
 var mongoose = require('mongoose');
-
-var educationSchema = mongoose.Schema(
+var Schema = mongoose.Schema;
+var educationSchema = new Schema(
     {
         school: String,
         academicDegree: String,
         start: Date,
         end: Date,
         major: String,
-        user_id: Schema.Types.ObjectId //belongs to user model
+        user: { type: Schema.Types.ObjectId, ref: 'User'} //belongs to user model
     }
 );
 
-exports.schema = mongoose.model('education', educationSchema);
-exports.name = 'education';
+exports.schema = mongoose.model('Education', educationSchema);
+exports.name = 'Education';
