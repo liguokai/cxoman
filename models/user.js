@@ -4,6 +4,7 @@ var userSchema = new Schema(
     {
         name: String,
         gender: String,
+        avatar: String,
         academicDegree: String,
         workingYear: Number,
         email: String,
@@ -18,7 +19,8 @@ var userSchema = new Schema(
         summary: String,
         currentSalary: String,
         desiredSalary: String,
-        privacy: [{ type: Schema.Types.ObjectId, ref: 'Company'}] //companies
+        auctionStatus: Number, //0: inactive, 1: active
+        privacy: [String] //list of companies' domains
     }
 );
 

@@ -14,7 +14,8 @@ var companySchema = mongoose.Schema(
         allowance: String,
         pictures: [String],
         email: String,
-        password: String
+        password: String,
+        status: Number //0: pending, 1: verified
     }
 );
 
