@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+        <div>
+            <h2>登录</h2>
+        </div>
+        <form id="sign-in" action="#" role="form">
+            <div class="form-group">
+                <div id="error" class="alert alert-danger" role="alert" style="display: none;">
+                </div>
+                <label for="email">
+                    Email address
+                </label>
+                <input class="form-control" id="email" type="email" name="email"/>
+            </div>
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+                <input class="form-control" id="password" type="password" name="password"/>
+            </div>
+            <div class="checkbox">
+
+                <label>
+                    <input type="checkbox"/> Check me out
+                </label>
+            </div>
+        </form>
+
+        <button id="submitBtn" class="btn btn-default">
+            Submit
+        </button>
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+<script>
+    $(function () {
+        $("#submitBtn").bind("click", function () {
+            $.post('/user/signin?ts=' + new Date().getTime(), $("#sign-in").serialize(), function (data) {
+                var errDiv = $("#error");
+                if (data instanceof Array) {
+                    //render error msg
+                    errDiv.empty();
+                    data.forEach(function (o) {
+                        errDiv.append('<div>' + o.error + '</div>');
+                    });
+                    errDiv.show();
+                    return;
+                }
+                //register without errors, redirect to profile page.
+                errDiv.hide();
+                window.location.href = "/users/profile";
+            });
+        });
+    });
+</script>
