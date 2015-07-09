@@ -21,7 +21,7 @@
     <option freeze="false" />
     <option funcscope="false" />
     <option gcl="false" />
-    <option globalstrict="false" />
+    <option globalstrict="true" />
     <option immed="false" />
     <option iterator="false" />
     <option jquery="true" />
