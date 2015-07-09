@@ -11,4 +11,4 @@ mail.address.reply              : your@yourwebsite.com
 mail.address.bcc                :
 
 //MongoDB configuration
-database                        : mongodb://li819-48.members.linode.com:27017/cxoman
+database                        : mongodb://li819-48.members.linode.com:27017/cxomantest
