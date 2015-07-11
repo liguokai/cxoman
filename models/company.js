@@ -1,6 +1,8 @@
 /**
  * Created by liguokai on 15-7-8.
+ * Move the information to user model
  */
+/*
 var mongoose = require('mongoose');
 var companySchema = mongoose.Schema(
     {
@@ -13,11 +15,9 @@ var companySchema = mongoose.Schema(
         logo: String,
         allowance: String,
         pictures: [String],
-        email: String,
-        password: String,
-        status: Number //0: pending, 1: verified
     }
 );
 
 exports.schema = mongoose.model('Company', companySchema);
 exports.name = 'Company';
+    */

@@ -7,9 +7,14 @@ var crypto = require('crypto');
 var User = MODEL('User').schema;
 
 exports.install = function () {
-    F.route("/user/signin/", signin_page, ['get']);
+    //sign in & sign up routes
+    F.route("/user/signin/", signin_page, ['unauthorized']);
     F.route("/user/signin/", sign_in, ['xhr', 'post']);
+    F.route("/user/signup/", signup_page, ['get']);
     F.route("/user/signup/", sign_up, ['xhr', 'post']);
+    //user profile routes
+    F.route("/user/profile/", user_profile, ['get', 'authorize']);
+
 };
 
 /* user sign in page action */
@@ -18,10 +23,16 @@ function signin_page() {
     self.view('signin');
 }
 
+/*user sign up page */
+function signup_page() {
+    var self = this;
+    self.view("signup");
+}
+
 /* user sign in action */
 function sign_in() {
     var self = this;
-
+    var auth = MODULE('auth');
     //get post information
     var email = self.req.body.email;
     var password = self.req.body.password;
@@ -64,6 +75,7 @@ function sign_in() {
             self.json(errorBuilder);
             return;
         }
+        auth.login(self, currentUser._id, currentUser);
         return self.json({r: true});
     });
 }
@@ -71,6 +83,7 @@ function sign_in() {
 /* user register action */
 function sign_up() {
     var self = this;
+    var auth = MODULE('auth');
     //get post information
     var email = self.req.body.email;
     var password = self.req.body.password;
@@ -101,19 +114,32 @@ function sign_up() {
         user.email = email;
         var hash = crypto.createHash('sha256');
         user.password = hash.update(password).digest('hex');
-        user.save(function (err) {
+        user.save(function (err, savedUser)  {
             if (err) {
                 errorBuilder.push('unexpected error', '@');
                 console.log(err);
+
                 self.json(errorBuilder);
                 return;
             }
+            auth.login(self, savedUser._id, savedUser);
             self.json({r: true});
         });
     });
 }
 
-/**
+/*
+    User Profile
+ */
+function user_profile() {
+    var self = this;
+    var auth = MODULE('auth');
+    //get the current login user
+    var currentUser = self.user;
+    self.view('profile', currentUser);
+}
+
+/*
  * custom validation logic
  */
 function onValidation(name, value) {
