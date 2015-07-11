@@ -1,3 +1,5 @@
-default-ip                      : 127.0.0.1
+default-ip                      : 0.0.0.0
 default-port                    : 8000
 
+//MongoDB configuration
+database                        : mongodb://45.79.85.212:27017/cxomantest

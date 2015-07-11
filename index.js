@@ -2,4 +2,4 @@
 /**
  * Created by liguokai on 15-7-9.
  */
-require('total.js').http('index');
+require('total.js').http('release');
