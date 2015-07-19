@@ -11,6 +11,9 @@
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" rel="stylesheet">
     @{css('site.css')}
+    @{css('bootstrap-select.min.css')}
+    @{css('bootstrap-datepicker.min.css')}
+    @{css('bootstrap-tagsinput.css')}
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -21,53 +24,29 @@
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    @{js('bootstrap-select.min.js')}
+    @{js('bootstrap-datepicker.min.js')}
+    @{js('bootstrap-datepicker.zh-CN.min.js')}
+
+    @{js('bootstrap-tagsinput.min.js')}
+    @{js('bootstrap3-typeahead.min.js')}
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <ul class="nav nav-pills">
-                <li class="active">
-                    <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="#">Profile</a>
-                </li>
-                <li class="disabled">
-                    <a href="#">Messages</a>
-                </li>
-                <li>
-                    <a href="/user/signin">Signin</a>
-                </li>
-                <li class="dropdown pull-right">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Dropdown<strong
-                            class="caret"></strong></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#">Action</a>
-                        </li>
-                        <li>
-                            <a href="#">Another action</a>
-                        </li>
-                        <li>
-                            <a href="#">Something else here</a>
-                        </li>
-                        <li class="divider">
-                        </li>
-                        <li>
-                            <a href="#">Separated link</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li><a href="/">首页</a></li>
+            <li><a href="/profile/edit">修改简历</a></li>
+        </ul>
     </div>
+</nav>
+<div class="container">
     @{body}
-<footer>
-    <p class="text-center">
-        copyright@cxoman.com
-    </p>
-</footer>
+    <footer>
+        <p class="text-center">
+            copyright@cxoman.com
+        </p>
+    </footer>
 </div>
 
 </body>

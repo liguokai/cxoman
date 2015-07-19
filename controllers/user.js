@@ -12,8 +12,6 @@ exports.install = function () {
     F.route("/user/signin/", sign_in, ['xhr', 'post']);
     F.route("/user/signup/", signup_page, ['get']);
     F.route("/user/signup/", sign_up, ['xhr', 'post']);
-    //user profile routes
-    F.route("/user/profile/", user_profile, ['get', 'authorize']);
 
 };
 
@@ -114,7 +112,7 @@ function sign_up() {
         user.email = email;
         var hash = crypto.createHash('sha256');
         user.password = hash.update(password).digest('hex');
-        user.save(function (err, savedUser)  {
+        user.save(function (err, savedUser) {
             if (err) {
                 errorBuilder.push('unexpected error', '@');
                 console.log(err);
@@ -128,16 +126,6 @@ function sign_up() {
     });
 }
 
-/*
-    User Profile
- */
-function user_profile() {
-    var self = this;
-    var auth = MODULE('auth');
-    //get the current login user
-    var currentUser = self.user;
-    self.view('profile', currentUser);
-}
 
 /*
  * custom validation logic
