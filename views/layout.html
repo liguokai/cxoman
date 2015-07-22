@@ -11,6 +11,7 @@
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" rel="stylesheet">
     @{css('site.css')}
+    @{css('site-bs.css')}
     @{css('bootstrap-select.min.css')}
     @{css('bootstrap-datepicker.min.css')}
     @{css('bootstrap-tagsinput.css')}
@@ -32,8 +33,8 @@
     @{js('bootstrap3-typeahead.min.js')}
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
+<nav class="navbar navbar-inverse navbar-fixed-top bs-navbar">
+    <div class="container">
         <ul class="nav navbar-nav">
             <li><a href="/">首页</a></li>
             <li><a href="/profile/edit">修改简历</a></li>
@@ -42,12 +43,12 @@
 </nav>
 <div class="container">
     @{body}
-    <footer>
-        <p class="text-center">
-            copyright@cxoman.com
-        </p>
-    </footer>
-</div>
 
+</div>
+<footer>
+    <p class="text-center">
+        copyright@cxoman.com
+    </p>
+</footer>
 </body>
 </html>

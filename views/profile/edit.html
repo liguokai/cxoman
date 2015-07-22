@@ -1,36 +1,37 @@
 <div class="row">
-</div>
-<div class="row">
-    <div class="col-md-3 ">
-        <div class="navbar sidenav affix">
-            <div class="nav">
-                <div>
-                    <a href="#basic">基本信息<span class="glyphicon glyphicon-chevron-right"></span></a>
-                </div>
-                <div class="">
-                    <a href="#expect">期望工作<span class="glyphicon glyphicon-chevron-right"></span></a>
-                </div>
-                <div class="active">
-                    <a href="#education">教育经历<span class="glyphicon glyphicon-chevron-right"></span></a>
-                </div>
-                <div>
-                    <a href="#experience">工作经历<span class="glyphicon glyphicon-chevron-right"></span></a>
-                </div>
-                <div>
-                    <a href="#summary">个人总结<span class="glyphicon glyphicon-chevron-right"></span></a>
-                </div>
-            </div>
-            <p>
-                <button type="button" class="btn btn-primary active">保存</button>
-                <button type="button" class="btn btn-primary active">预览</button>
-            </p>
-        </div>
+    <div class="col-md-3">
+        <nav id="leftside" class="bs-sidebar affix">
+            <ul class="nav hidden-xs hidden-sm bs-sidenav">
+                <li>
+                    <a href="#basic">基本信息</a>
+                </li>
+                <li>
+                    <a href="#expect">期望工作</a>
+                </li>
+                <li>
+                    <a href="#education">教育经历</a>
+                </li>
+                <li>
+                    <a href="#experience">工作经历</a>
+                </li>
+                <li>
+                    <a href="#summary">个人总结</a>
+                </li>
+                <li>
+                    <a href="#privacy">隐私保护</a>
+                </li>
+            </ul>
+            <hr/>
+            <a type="button" class="btn btn-primary active">保存</a>
+            <hr/>
+            <a type="button" class="btn btn-primary active">预览</a>
+        </nav>
+
     </div>
-    <div class="row col-md-9">
-        <div id="basic" class="row profile-block">
-            <div class="profile-title">
-                <h3>基本信息</h3>
-            </div>
+    <div class="col-md-9" role="main">
+        <div class="row profile-block">
+            <h3 id="basic">基本信息</h3>
+
             <div class="profile-body">
                 <form class="form-horizontal">
                     <div class="form-group">
@@ -131,10 +132,9 @@
             </div>
         </div>
         <hr/>
-        <div id="expect" class="row profile-block">
-            <div class="profile-title">
-                <h3>期望工作</h3>
-            </div>
+        <div class="row profile-block">
+            <h3 id="expect">期望工作</h3>
+
             <div class="profile-body">
                 <form class="form-horizontal">
                     <div class="form-group">
@@ -168,17 +168,28 @@
             </div>
         </div>
         <hr/>
-        <div id="education" class="row profile-block">
-            <div class="profile-title">
-                <h3>教育经历</h3>
+        <div class="row profile-block">
+            <h3 id="education">教育经历</h3>
+
+            <div class="profile-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="school" class="control-label col-md-2">就读学校</label>
+
+                        <div class="col-md-10">
+                            <input id="school" type="text" name="school" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                    </div>
+                </form>
             </div>
-            <div class="profile-body"></div>
         </div>
         <hr/>
-        <div id="experience" class="row profile-block">
-            <div class="profile-title">
-                <h3>工作经历</h3>
-            </div>
+        <div class="row profile-block">
+            <h3 id="experience">工作经历</h3>
+
             <div class="profile-body"></div>
         </div>
         <hr/>
@@ -189,24 +200,32 @@
             <div class="profile-body"></div>
         </div>
         <hr/>
-        <div id="privacy" class="row profile-block">
-            <div class="profile-title">
-                <h3>隐私保护</h3>
-            </div>
+        <div class="row profile-block">
+            <h3 id="privacy">隐私保护</h3>
+
             <div class="profile-body"></div>
         </div>
     </div>
 </div>
-<script>
-    $('#birthday').datepicker({
-        autoclose: true,
-        language: 'zh-CN',
-        startView: 'decade'
-    });
+<script type="application/javascript">
+    $(function () {
+        $('#birthday').datepicker({
+            autoclose: true,
+            language: 'zh-CN',
+            startView: 'decade'
+        });
 
-    $('#skills').tagsinput({
-        trimValue: true,
-        tagClass: 'label-primary',
-        maxChars: 16
+        $('#skills').tagsinput({
+            trimValue: true,
+            tagClass: 'label-primary',
+            maxChars: 16
+        });
+        /* activate scrollspy menu */
+        var navHeight = $('.navbar').outerHeight(true) + 10;
+
+       $('body').scrollspy({
+            target: '#leftside',
+            offset: 50
+        });
     });
 </script>
