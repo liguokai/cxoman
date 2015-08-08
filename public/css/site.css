@@ -22,3 +22,64 @@ body {
     box-shadow: inset 0 4px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* main navbar */
+.bs-navbar {
+    height: 40px;
+}
+
+/* side nav bar*/
+#sidebar.affix {
+    position: fixed;
+    top:70px;
+    width:228px;
+}
+}
+
+#sidebar li.active {
+    border:0 #eee solid;
+    border-right-width:5px;
+}
+
+.bs-sidebar {
+    padding-right: 20px;
+}
+
+.bs-sidenav {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.bs-sidenav li {
+    width: 200px;
+}
+
+.bs-sidebar .nav > li > a {
+    color: #767676;
+    display: block;
+    padding 4px 20px;
+}
+.bs-sidebar .nav > li > a:focus, .bs-sidebar .nav > li > a:hover {
+     background-color: transparent;
+     border-right: 1px solid #563d7c;
+     color: #563d7c;
+     padding-left: 19px;
+     text-decoration: none;
+ }
+.bs-sidebar .nav > .active:focus > a, .bs-sidebar .nav > .active:hover > a, .bs-sidebar .nav > .active > a {
+    background-color: transparent;
+    border-right: 2px solid #563d7c;
+    color: #563d7c;
+    font-weight: 700;
+    padding-left: 18px;
+}
+
+/* Tagsinput */
+.bootstrap-tagsinput {
+    width: 100%;
+}
+
+/* profile page */
+.profile-block {
+    padding-top: 20px;
+    padding-bottom: 50px;
+}

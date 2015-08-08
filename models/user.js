@@ -16,19 +16,19 @@ var userSchema = new Schema(
         //user specified information
         country: String,
         academicDegree: String,
-        workingYear: String, //define how many working years
-        birthday: Date,
-        skills: [String],
+        workYear: String, //define how many working years
+        birthday: String,
+        skills: String,
         currentProvince: String,
         currentCity: String,
         expectedProvince: String,
         expectedCity: String,
         summary: String,
         currentSalary: String,
-        desiredPositions: [String],
+        desiredPosition: String,
         desiredSalary: String,
         auctionStatus: Number, //0: inactive, 1: active
-        privacy: [String], //list of companies' domains
+        privacy: String, //list of companies' domains
         educations: [{ type: Schema.Types.ObjectId, ref: 'Education' }],
         experiences: [{ type: Schema.Types.ObjectId, ref: 'Experience' }],
         //company specified information

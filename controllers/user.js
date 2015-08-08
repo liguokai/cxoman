@@ -30,7 +30,6 @@ function signup_page() {
 /* user sign in action */
 function sign_in() {
     var self = this;
-    var auth = MODULE('auth');
     //get post information
     var email = self.req.body.email;
     var password = self.req.body.password;
@@ -73,7 +72,11 @@ function sign_in() {
             self.json(errorBuilder);
             return;
         }
-        auth.login(self, currentUser._id, currentUser);
+
+        // Save to cookie
+        self.res.cookie(F.config.cookie, F.encrypt({ id: currentUser._id, ip: self.req.ip }, 'user'), new Date().add('m', 60));
+
+
         return self.json({r: true});
     });
 }
@@ -81,7 +84,6 @@ function sign_in() {
 /* user register action */
 function sign_up() {
     var self = this;
-    var auth = MODULE('auth');
     //get post information
     var email = self.req.body.email;
     var password = self.req.body.password;
@@ -120,7 +122,10 @@ function sign_up() {
                 self.json(errorBuilder);
                 return;
             }
-            auth.login(self, savedUser._id, savedUser);
+
+            // Save to cookie
+            self.res.cookie(F.config.cookie, F.encrypt({ id: user._id, ip: self.req.ip }, 'user'), new Date().add('m', 60));
+
             self.json({r: true});
         });
     });

@@ -15,14 +15,14 @@
                     <a href="#experience">工作经历</a>
                 </li>
                 <li>
-                    <a href="#summary">个人总结</a>
+                    <a href="#user_summary">个人总结</a>
                 </li>
                 <li>
-                    <a href="#privacy">隐私保护</a>
+                    <a href="#compay_privacy">隐私保护</a>
                 </li>
             </ul>
             <hr/>
-            <a type="button" class="btn btn-primary active">保存</a>
+            <button id="save_btn" class="btn btn-primary active">保存</button>
             <hr/>
             <a type="button" class="btn btn-primary active">预览</a>
         </nav>
@@ -33,17 +33,19 @@
             <h3 id="basic">基本信息</h3>
 
             <div class="profile-body">
-                <form class="form-horizontal">
+                <form id="profile-basic" class="form-horizontal">
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="name">真实姓名</label>
 
                         <div class="col-md-4">
-                            <input id="name" name="name" type="text" class="form-control" placeholder="请输入您的真实姓名">
+                            <input id="name" name="name" value="@{model.name}" type="text" class="form-control"
+                                   placeholder="请输入您的真实姓名">
                         </div>
                         <label class="col-md-2 control-label" for="country">国籍</label>
 
                         <div class="col-md-4">
-                            <select id="country" name="country" class="selectpicker form-control" title="请选择国家或地区">
+                            <select id="country" name="country"
+                                    class="selectpicker form-control" title="请选择国家或地区">
                                 <option>中国</option>
                                 <option>香港</option>
                                 <option>台湾</option>
@@ -59,7 +61,8 @@
                         <label class="col-md-2 control-label" for="academicDegree">学历</label>
 
                         <div class="col-md-4">
-                            <select id="academicDegree" name="academicDegree" class="selectpicker form-control"
+                            <select id="academicDegree" name="academicDegree"
+                                    class="selectpicker form-control"
                                     title="请选择学历">
                                 <option>高中</option>
                                 <option>大专</option>
@@ -71,7 +74,8 @@
                         <label class="col-md-2 control-label" for="workYear">工作年限</label>
 
                         <div class="col-md-4">
-                            <select id="workYear" name="workYear" class="selectpicker form-control" title="请选择工作年限">
+                            <select id="workYear" name="workYear"
+                                    class="selectpicker form-control" title="请选择工作年限">
                                 <option>一年</option>
                                 <option>两年</option>
                                 <option>三年</option>
@@ -85,7 +89,8 @@
                         <label class="col-md-2 control-label" for="gender">性别</label>
 
                         <div class="col-md-4">
-                            <select id="gender" name="gender" class="selectpicker form-control" title="请选择性别">
+                            <select id="gender" name="gender" class="selectpicker form-control"
+                                    title="请选择性别">
                                 <option>男</option>
                                 <option>女</option>
                             </select>
@@ -93,7 +98,8 @@
                         <label class="col-md-2 control-label" for="birthday">生日</label>
 
                         <div class="col-md-4">
-                            <input id="birthday" name="birthday" type="text" class="form-control" readonly>
+                            <input id="birthday" name="birthday" type="text"
+                                   class="form-control" value="@{model.birthday}" placeholder="请选择生日" readonly>
                         </div>
                     </div>
                     <div class="form-group">
@@ -101,7 +107,7 @@
 
                         <div class="col-md-4">
                             <select id="currentProvince" name="currentProvince" class="selectpicker form-control"
-                                    id="请选择现在工作地点">
+                                    title="请选择现在工作地点">
                                 <option>湖北</option>
                                 <option>其他</option>
                             </select>
@@ -110,7 +116,8 @@
 
                         <div class="col-md-4">
                             <div class="input-group">
-                                <input id="currentSalary" name="currentSalary" type="text" class="form-control">
+                                <input id="currentSalary" name="currentSalary" value="@{model.currentSalary}"
+                                       type="text" placeholder="请输入您现在的年薪" class="form-control">
 
                                 <div class="input-group-addon">万</div>
                             </div>
@@ -120,12 +127,13 @@
                         <label for="mobile" class="col-md-2 control-label">手机号码</label>
 
                         <div class="col-md-4">
-                            <input id="mobile" type="text" class="form-control" name="mobile">
+                            <input id="mobile" type="text" class="form-control" name="mobile" value="@{model.mobile}">
                         </div>
                         <label for="email" class="col-md-2 control-label">Email</label>
 
                         <div class="col-md-4">
-                            <input id="email" type="text" class="form-control" name="email" readonly>
+                            <input id="email" type="text" class="form-control" name="email" value="@{model.email}"
+                                   readonly>
                         </div>
                     </div>
                 </form>
@@ -136,18 +144,19 @@
             <h3 id="expect">期望工作</h3>
 
             <div class="profile-body">
-                <form class="form-horizontal">
+                <form id="profile-expect" class="form-horizontal">
                     <div class="form-group">
-                        <label for="desiredLocation" class="col-md-2 control-label">期望工作地点</label>
+                        <label for="expectedProvince" class="col-md-2 control-label">期望工作地点</label>
 
                         <div class="col-md-4">
-                            <input id="desiredLocation" type="text" value="湖北" readonly/>
+                            <input id="expectedProvince" name="expectedProvince" type="text" value="湖北" readonly/>
                         </div>
                         <label for="desiredSalary" class="col-md-2 control-label">期望年薪</label>
 
                         <div class="col-md-4">
                             <div class="input-group">
-                                <input id="desiredSalary" name="desiredSalary" class="form-control" type="text">
+                                <input id="desiredSalary" name="desiredSalary" class="form-control" type="text"
+                                       value="@{model.desiredSalary}">
 
                                 <div class="input-group-addon">万</div>
                             </div>
@@ -160,7 +169,7 @@
                         <label for="skills" class="col-md-2 control-label">专业技能</label>
 
                         <div class="col-md-10">
-                            <input id="skills" type="text" name="skills" class="form-control">
+                            <input id="skills" type="text" name="skills" value="@{model.skills}" class="form-control">
                         </div>
                         <span class="help-block">使用英文逗号字符或回车添加更多</span>
                     </div>
@@ -172,60 +181,224 @@
             <h3 id="education">教育经历</h3>
 
             <div class="profile-body">
-                <form class="form-horizontal">
+                <form class="form-horizontal" id="profile-education">
                     <div class="form-group">
-                        <label for="school" class="control-label col-md-2">就读学校</label>
+                        <label for="edu_school" class="control-label col-md-2">学校名称</label>
 
                         <div class="col-md-10">
-                            <input id="school" type="text" name="school" class="form-control">
+                            <input id="edu_school" type="text" name="edu_school" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="edu_major" class="control-label col-md-2">专业</label>
 
+                        <div class="col-md-4">
+                            <input id="edu_major" class="form-control" type="text" name="edu_major">
+                        </div>
+                        <label for="edu_degree" class="control-label col-md-2">学历</label>
+
+                        <div class="col-md-4">
+                            <select id="edu_degree" name="academicDegree" class="selectpicker form-control"
+                                    title="请选择学历">
+                                <option>大专</option>
+                                <option>本科</option>
+                                <option>硕士</option>
+                                <option>博士</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2">就读时间</label>
+
+                        <div class="col-md-6">
+
+                            <div class="input-group">
+                                <div class="input-group-addon">开始</div>
+                                <input id="edu_start" type="text" name="edu_start" class="form-control" readonly>
+
+                                <div class="input-group-addon">结束</div>
+                                <input id="edu_end" type="text" name="edu_end" class="form-control" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="checkbox">
+                                <label>
+                                    <input id="edu_present" type="checkbox" name="edu_present"> 现在
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-2 col-md-offset-2">
+                            <button id="add-education-btn" type="button" class="btn btn-primary btn-block">新增</button>
+                        </div>
                     </div>
                 </form>
+                <div class="edu-list list-group">
+                </div>
             </div>
         </div>
         <hr/>
         <div class="row profile-block">
             <h3 id="experience">工作经历</h3>
 
-            <div class="profile-body"></div>
-        </div>
-        <hr/>
-        <div id="summary" class="row profile-block">
-            <div class="profile-title">
-                <h3>个人总结</h3>
-            </div>
-            <div class="profile-body"></div>
-        </div>
-        <hr/>
-        <div class="row profile-block">
-            <h3 id="privacy">隐私保护</h3>
+            <div class="profile-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="exp_company">公司名称</label>
 
-            <div class="profile-body"></div>
+                        <div class="col-md-10">
+                            <input id="exp_company" name="exp_company" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="exp_position">职位名称</label>
+
+                        <div class="col-md-10">
+                            <input id="exp_position" name="exp_position" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="exp_start">在职时间</label>
+
+                        <div class="col-md-6">
+
+                            <div class="input-group">
+                                <div class="input-group-addon">开始</div>
+                                <input id="exp_start" type="text" name="exp_start" class="form-control" readonly>
+
+                                <div class="input-group-addon">结束</div>
+                                <input id="exp_end" type="text" name="exp_end" class="form-control" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="checkbox">
+                                <label>
+                                    <input id="exp_present" type="checkbox" name="exp_present"> 现在
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="exp_description">工作描述</label>
+
+                        <div class="col-md-10">
+                            <textarea class="form-control" id="exp_description" name="exp_description"
+                                      rows="4"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-2">
+                            <input type="button" class="btn btn-primary" value="新增">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr/>
+        <div id="user_summary" class="row profile-block">
+            <form id="profile-summary" class="form-horizontal">
+                <div class="profile-title">
+                    <h3>个人总结</h3>
+                </div>
+                <div class="profile-body">
+                    <div class="form-group">
+                        <p>写好个人总结有助于公司更好的了解您</p>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-md-12">
+                    <textarea class="form-control" id="summary" name="summary"
+                              rows="5">@{model.summary}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <hr/>
+        <div id="compay_privacy" class="row profile-block">
+            <h3>隐私保护</h3>
+
+            <div class="profile-body">
+                <form id="profile-privacy" class="form-horizontal">
+                    <label for="privacy" class="col-md-2 control-label">您想屏蔽的公司</label>
+
+                    <div class="col-md-10">
+                        <input id="privacy" type="text" name="privacy" value="@{model.privacy}" class="form-control">
+                    </div>
+                    <span class="help-block">请输入您想屏蔽的公司邮箱后缀</span>
+                </form>
+            </div>
         </div>
     </div>
 </div>
 <script type="application/javascript">
+
+    var country = "@{model.country}";
+    var academicDegree = "@{model.academicDegree}";
+    var workYear = "@{model.workYear}";
+    var gender = "@{model.gender}";
+    var currentProvince = "@{model.currentProvince}"
+</script>
+<script type="application/javascript">
+
     $(function () {
         $('#birthday').datepicker({
+            format: 'yyyy-mm-dd',
             autoclose: true,
             language: 'zh-CN',
             startView: 'decade'
         });
 
-        $('#skills').tagsinput({
+        $('#edu_start, #edu_end, #exp_start, #exp_end').datepicker({
+            format: 'yyyy-mm',
+            autoclose: true,
+            language: 'zh-CN',
+            startView: 'decade',
+            minViewMode: 1,
+            endDate: 'Now()'
+        });
+
+        $('#skills, #privacy').tagsinput({
             trimValue: true,
             tagClass: 'label-primary',
             maxChars: 16
         });
+
         /* activate scrollspy menu */
         var navHeight = $('.navbar').outerHeight(true) + 10;
 
-       $('body').scrollspy({
+        $('body').scrollspy({
             target: '#leftside',
-            offset: 50
+            offset: navHeight
+        });
+
+        /* setup the selected items */
+        $('.selectpicker').selectpicker();
+        $('#country').selectpicker('val', country);
+        $('#gender').selectpicker('val', gender);
+        $('#workYear').selectpicker('val', workYear);
+        $('#academicDegree').selectpicker('val', academicDegree);
+        $('#currentProvince').selectpicker('val', currentProvince);
+
+        /* update profile */
+        $('#save_btn').click(function () {
+            //serialize the form params
+            var postData = $("#profile-basic, #profile-expect, #profile-summary, #profile-summary, #profile-privacy").serialize();
+            $.post('/profile/update?ts=' + new Date().getTime(), postData, function (data) {
+
+            });
+        });
+
+        /* add new education record */
+        $('#add-education-btn').click(function() {
+            //serialize the form params
+            var postData = $('#profile-education').serialize();
+            $.post('/education/add?ts=' + new Date().getTime(), postData, function(data) {
+                
+            });
         });
     });
+
 </script>

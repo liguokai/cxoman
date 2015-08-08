@@ -11,8 +11,6 @@ var experienceSchema = new Schema(
         position: String,
         start: Date,
         end: Date,
-        projectName: String,
-        projectScale: Number, //how many people in the projects
         description: String,
         user: { type: Schema.Types.ObjectId, ref: 'User'} //belongs to user model
     }

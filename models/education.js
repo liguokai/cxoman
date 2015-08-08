@@ -9,9 +9,9 @@ var Schema = mongoose.Schema;
 var educationSchema = new Schema(
     {
         school: String,
-        academicDegree: String,
-        start: Date,
-        end: Date,
+        degree: String,
+        start: String,
+        end: String,
         major: String,
         user: { type: Schema.Types.ObjectId, ref: 'User'} //belongs to user model
     }
