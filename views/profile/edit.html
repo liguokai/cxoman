@@ -224,7 +224,7 @@
                         <div class="col-md-4">
                             <div class="checkbox">
                                 <label>
-                                    <input id="edu_present" type="checkbox" name="edu_present"> 现在
+                                    <input id="edu_present" type="checkbox" value='present' name="edu_present"> 现在
                                 </label>
                             </div>
                         </div>
@@ -387,7 +387,7 @@
             //serialize the form params
             var postData = $("#profile-basic, #profile-expect, #profile-summary, #profile-summary, #profile-privacy").serialize();
             $.post('/profile/update?ts=' + new Date().getTime(), postData, function (data) {
-
+                alert("saved");
             });
         });
 
@@ -396,7 +396,6 @@
             //serialize the form params
             var postData = $('#profile-education').serialize();
             $.post('/education/add?ts=' + new Date().getTime(), postData, function(data) {
-                
             });
         });
     });

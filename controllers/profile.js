@@ -4,7 +4,7 @@
  */
 var User = MODEL('User').schema;
 exports.install = function () {
-    //user profile routes
+    //user's profile routes
     F.route("/profile/", view_profile, ['get', 'authorize']);
     F.route("/profile/edit", edit_profile_page, ['get', 'authorize']);
     F.route("/profile/update", update_profile, ['post', 'authorize']);
@@ -17,12 +17,20 @@ function view_profile() {
     //get the current login user
     var currentUser = self.user;
     //populate the user related information
-    currentUser.populate('education experience', function (err, userProfile) {
+    User.findById(currentUser._id, function (err, user) {
         if (err) {
             //TODO handle error
             console.log(err);
         }
-        self.view('index', userProfile);
+        //populate the user related information
+        user.populate('education experience', function (err, userProfile) {
+            if (err) {
+                //TODO handle error
+                console.log(err);
+            }
+            console.log(userProfile);
+            self.view('edit', userProfile);
+        });
     });
 }
 

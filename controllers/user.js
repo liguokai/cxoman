@@ -116,8 +116,8 @@ function sign_up() {
         user.password = hash.update(password).digest('hex');
         user.save(function (err, savedUser) {
             if (err) {
-                errorBuilder.push('unexpected error', '@');
-                console.log(err);
+                errorBuilder.push('database error', '@');
+                LOG(err);
 
                 self.json(errorBuilder);
                 return;
@@ -140,7 +140,7 @@ function onValidation(name, value) {
         case 'email':
             return utils.isEmail(value);
         case 'password':
-            if (value.length === 0) {
+            if (utils.isEmpty(value)) {
                 return RESOURCE('cn', 'password is required');
             } else if (value.length < 6 || value.length > 20) {
                 return RESOURCE('cn', 'password length should be 6 to 20 digits');
