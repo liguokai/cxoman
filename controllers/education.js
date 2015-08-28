@@ -5,9 +5,9 @@
 var Education = MODEL('Education').schema;
 var user = MODEL('User').schema;
 
-exports.intstall = function () {
+exports.install = function () {
     //user's education routes
-    F.route("/education/add", new_education, ['post', 'authorize']);
+    F.route("/education/add/", new_education, ['post', 'authorize']);
 };
 
 /*
@@ -26,7 +26,7 @@ function new_education() {
     paramObjectMapping(self.req.body, education);
     //check whether 'present' is set
     var end_present = self.req.body.edu_present;
-    if (!utils.isEmpty(end_present)) {
+    if (undefined !== end_present && !utils.isEmpty(end_present)) {
         education.end = end_present;
     }
     var errorBuilder = new builders.ErrorBuilder(resource);

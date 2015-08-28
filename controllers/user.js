@@ -126,7 +126,7 @@ function sign_up() {
             // Save to cookie
             self.res.cookie(F.config.cookie, F.encrypt({ id: user._id, ip: self.req.ip }, 'user'), new Date().add('m', 60));
 
-            self.json({r: true});
+            return self.json({r: true});
         });
     });
 }
